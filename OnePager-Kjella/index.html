@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+
+  <style>
+    /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+  body{
+    font-family: 'Montserrat', sans-serif;
+  }
+    div.slide1 {
+      height:100vh;
+      background-color: #e5e5e5;
+      background-image:url(res/bgimage.png);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position: center center;
+      position: relative;
+    }
+    div.title {
+      display:grid;
+      height:100vh;
+      text-align:center;
+      background:url(res/transparentshape.svg);
+      background-repeat:no-repeat;
+      background-position:bottom right;
+      background-size:contain;
+    }
+    div.title div.holder{
+      align-self: end;
+    }
+    div.title h1{
+      font-size: 2em;
+      letter-spacing: 0.2em;
+      margin-bottom: 1em;
+    }
+    div.title a{
+      display: inline-block;
+      text-decoration: none;
+      color: #000;
+      background-color: #e5e5e5;
+      padding:0.7em 2.5em;
+      margin-bottom:2em;
+      border-radius:30px;
+      transition:all 0.5s;
+    }
+    div.title a:hover{
+      background-color: #4d4d4d;
+      color: #fff;
+    }
+
+
+    div.slide2 {
+      height:70vh;
+      background-color: #fff;
+   }
+    div.grid2 {
+      display: grid;
+      grid-template-columns:1fr 1fr;
+      margin: 3vw;
+      grid-gap: 3vw;
+    }
+    @media only screen and (max-width: 800px) {
+      div.grid2{grid-template-columns:1fr;}
+    }
+    div.txt {
+      color: black;
+      position: center;
+      align-self: center;
+      justify-self: start;
+    }
+    div.txt.mirror{
+      justify-self:end;
+    }
+    div.txt h1 {
+      font-size: 4em;
+      line-height: 1.4em;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.1em;
+    }
+    div.txt p {
+      font-family: Montserrat;
+      font-size: 1.2em;
+      line-height: 1.4em;
+    }
+    div.img2{
+      align-self: center;
+      justify-self: end;
+    }
+    div.img2.mirror{
+      justify-self: start;
+    }
+    div.img2 img{
+      width: 100%;
+    }
+
+    div.slide3 {
+      height:100vh;
+      background-color: #e5e5e5;
+      background-image:url(res/watch5.jpeg);
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position: center center;
+      position: relative;
+    }
+    div.header {
+      background: #fff;
+      text-align:center;
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+    }
+    div.header h1{
+      font-size: 4em;
+      letter-spacing: 0.2em;
+      margin-bottom: 1em;
+      margin-top: 2em;
+    }
+    div.header p {
+      font-family: Montserrat, serif;
+      font-size: 20px;
+      line-height: 25px;
+      width: 25em;
+      margin-left: 25%;
+      text-align: left;
+    }
+
+    div.slide4{
+      height: 100vh;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+    .column {
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+    }
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+    h3 {
+      font-family: GFS Didot;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 26px;
+      line-height: 32px;
+      text-align: center;
+      word-break: break-all;
+    }
+    p {
+      font-family: Montserrat, serif;
+      font-size: 20px;
+      line-height: 25px;
+      text-align: left;
+    }
+    .row {
+      margin: 8px -16px;
+    }
+    .row,
+    .row > .column {
+      padding: 20px;
+    }
+    .centered {
+      display:block;
+      margin-left:12%;
+      width:90%;
+    }
+    .responsive{
+      width:100%;
+      height:auto;
+    }
+    .column {
+      float: center;
+      width: 25%;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    div.slide5{
+      height:200vh;
+      margin-left:25%;
+      }
+
+    div.slide5 .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+
+    div.slide5 .row:after {
+       display: table;
+      clear: both;
+    }
+    div.txt3{
+      color:black
+    }
+    div.txt3 h1{
+      font-family: Barlow Condensed;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 64px;
+      line-height: 77px;
+    }
+    div.txt3 p{
+      max-width: 287px;
+      max-height: 885px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 27px;
+    }
+    div.txt3 img{
+      max-width: 650px;
+      margin-right: 25%;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="slide1">
+  <div class="title">
+    <div class="holder">
+      <h1>Inspired by nature, we craft content that inspires</h1>
+      <a href="#">Become a Founder</a>
+    </div>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="grid2">
+    <div class="img2">
+      <img src="res/slide2.png">
+    </div>
+    <div class="txt">
+      <h1> The Carpenter Collection </h1>
+      <p class="p"> Innovative and minimalistic, 80% biodegradable, water resistant and interchangable
+</p>    </div>
+  </div>
+</div>
+
+<div class="slide3">
+  <div class="header">
+    <h1>Our Watches</h1>
+    <p>An All Natural Way to Tell Time</p>
+    <br>
+    <p>Our Carpenter Watch is designed to be sleek and subtle in form.
+This gender-neutral piece is meant to inspire, recall, and pay homage to those experiences when we are close to nature.
+With a soft leather strap and a solid wood body, our timepieces is as beautiful as it is earth friendly. The craftsmanship involved in designing with these natural materials is self evident - and the result is a sophisticated, eco-conscious design that is over 80% biodegradable.
+ </p>
+  </div>
+</div>
+
+<div class="slide2">
+  <div class="centered">
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="res/watch7.png" style="width:100%" class"responsive">
+          <h3>Makore & Red Sanders</h3>
+          <p>$175</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="res/watch8.png" style="width:100%"class"responsive">
+          <h3>Silverheart & Maple</h3>
+          <p>$150</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="res/watch9.png" style="width:100%"class"responsive">
+          <h3>Leather & Blackwood</h3>
+          <p>$180</p>
+        </div>
+      </div>
+      <div class="slide2">
+        <div class="grid2">
+          <div class="img2">
+            <img src="res/watch10.png">
+          </div>
+          <div class="txt">
+            <h1> Your Purchase Has Impact </h1>
+            <p class="p"> When you buy from the Carpenter Collection, a tree is planted through our partnership through Trees for the Future. Thanks to people like you, we’ve planted tens of thouands of trees.
+
+      </p>    </div>
+        </div>
+      </div>
+</body>
+</html>
